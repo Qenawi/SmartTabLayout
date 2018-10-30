@@ -34,7 +34,6 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 /**
  * To be used with ViewPager to provide a tab indicator component which give constant feedback as
  * to
@@ -58,8 +57,8 @@ import android.widget.TextView;
  * Forked from Google Samples &gt; SlidingTabsBasic &gt;
  * <a href="https://developer.android.com/samples/SlidingTabsBasic/src/com.example.android.common/view/SlidingTabLayout.html">SlidingTabLayout</a>
  */
-public class SmartTabLayout extends HorizontalScrollView {
-
+public class SmartTabLayout extends HorizontalScrollView
+{
   private static final boolean DEFAULT_DISTRIBUTE_EVENLY = false;
   private static final int TITLE_OFFSET_DIPS = 24;
   private static final int TITLE_OFFSET_AUTO_CENTER = -1;
@@ -94,7 +93,8 @@ public class SmartTabLayout extends HorizontalScrollView {
     this(context, attrs, 0);
   }
 
-  public SmartTabLayout(Context context, AttributeSet attrs, int defStyle) {
+  public SmartTabLayout(Context context, AttributeSet attrs, int defStyle)
+  {
     super(context, attrs, defStyle);
 
     // Disable the Scroll Bar
@@ -301,7 +301,8 @@ public class SmartTabLayout extends HorizontalScrollView {
    * @param layoutResId Layout id to be inflated
    * @param textViewId id of the {@link android.widget.TextView} in the inflated view
    */
-  public void setCustomTabView(int layoutResId, int textViewId) {
+  public void setCustomTabView(int layoutResId, int textViewId)
+  {
     tabProvider = new SimpleTabProvider(getContext(), layoutResId, textViewId);
   }
 
@@ -549,7 +550,8 @@ public class SmartTabLayout extends HorizontalScrollView {
 
   }
 
-  private static class SimpleTabProvider implements TabProvider {
+  private static class SimpleTabProvider implements TabProvider
+  {
 
     private final LayoutInflater inflater;
     private final int tabViewLayoutId;
@@ -574,12 +576,14 @@ public class SmartTabLayout extends HorizontalScrollView {
         tabTitleView = (TextView) tabView.findViewById(tabViewTextViewId);
       }
 
-      if (tabTitleView == null && TextView.class.isInstance(tabView)) {
+      if (tabTitleView == null && TextView.class.isInstance(tabView))
+      {
         tabTitleView = (TextView) tabView;
       }
 
       if (tabTitleView != null) {
-        tabTitleView.setText(adapter.getPageTitle(position));
+        //adapter.getPageTitle(position)
+        tabTitleView.setText("CustomQenawi"+position);
       }
 
       return tabView;
